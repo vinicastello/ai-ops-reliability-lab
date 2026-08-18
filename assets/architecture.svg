@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
-  <title id="title">AI Operations Reliability Lab architecture</title>
-  <desc id="desc">A proposal passes through a deterministic commit barrier. Allowed effects and blocked decisions are audited and measured.</desc>
+  <title id="title">Arquitetura do laboratório de confiabilidade para operações com IA</title>
+  <desc id="desc">Uma proposta passa por uma barreira determinística. Efeitos liberados e decisões bloqueadas são auditados e medidos.</desc>
   <defs>
     <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
       <stop offset="0" stop-color="#07111f"/>
@@ -14,31 +14,31 @@
     </marker>
   </defs>
   <rect width="1200" height="520" rx="28" fill="url(#bg)"/>
-  <text x="64" y="68" fill="#fff" font-family="Segoe UI, Arial" font-size="30" font-weight="700">AI Operations Reliability Lab</text>
-  <text x="64" y="101" fill="#a8c7dc" font-family="Segoe UI, Arial" font-size="17">Evidence before effects · Human ownership · Verifiable audit</text>
+  <text x="64" y="68" fill="#fff" font-family="Segoe UI, Arial" font-size="30" font-weight="700">Confiabilidade em Operações com IA</text>
+  <text x="64" y="101" fill="#a8c7dc" font-family="Segoe UI, Arial" font-size="17">Evidência antes do efeito · Ownership humano · Auditoria verificável</text>
 
   <g filter="url(#shadow)" font-family="Segoe UI, Arial">
     <rect x="62" y="185" width="190" height="112" rx="18" fill="#16344b" stroke="#4bbde8" stroke-width="2"/>
-    <text x="157" y="226" text-anchor="middle" fill="#8edfff" font-size="16" font-weight="600">INPUT</text>
-    <text x="157" y="258" text-anchor="middle" fill="#fff" font-size="22" font-weight="700">AI proposal</text>
+    <text x="157" y="226" text-anchor="middle" fill="#8edfff" font-size="16" font-weight="600">ENTRADA</text>
+    <text x="157" y="258" text-anchor="middle" fill="#fff" font-size="22" font-weight="700">Proposta da IA</text>
 
     <rect x="346" y="150" width="300" height="182" rx="20" fill="#123d3d" stroke="#50e3c2" stroke-width="3"/>
-    <text x="496" y="197" text-anchor="middle" fill="#77f1d5" font-size="16" font-weight="600">COMMIT BARRIER</text>
-    <text x="496" y="232" text-anchor="middle" fill="#fff" font-size="23" font-weight="700">Deterministic policy</text>
-    <text x="496" y="266" text-anchor="middle" fill="#c3e7df" font-size="15">ownership · idempotency</text>
-    <text x="496" y="290" text-anchor="middle" fill="#c3e7df" font-size="15">intent · confirmation · integrity</text>
+    <text x="496" y="197" text-anchor="middle" fill="#77f1d5" font-size="16" font-weight="600">BARREIRA DE COMMIT</text>
+    <text x="496" y="232" text-anchor="middle" fill="#fff" font-size="23" font-weight="700">Política determinística</text>
+    <text x="496" y="266" text-anchor="middle" fill="#c3e7df" font-size="15">ownership · idempotência</text>
+    <text x="496" y="290" text-anchor="middle" fill="#c3e7df" font-size="15">intenção · confirmação · integridade</text>
 
     <rect x="748" y="116" width="202" height="104" rx="18" fill="#143f32" stroke="#62df9a" stroke-width="2"/>
-    <text x="849" y="158" text-anchor="middle" fill="#9af0bc" font-size="16" font-weight="600">ALLOW</text>
-    <text x="849" y="188" text-anchor="middle" fill="#fff" font-size="20" font-weight="700">Simulated commit</text>
+    <text x="849" y="158" text-anchor="middle" fill="#9af0bc" font-size="16" font-weight="600">LIBERAR</text>
+    <text x="849" y="188" text-anchor="middle" fill="#fff" font-size="20" font-weight="700">Efeito simulado</text>
 
     <rect x="748" y="276" width="202" height="104" rx="18" fill="#4a2530" stroke="#ff7f9c" stroke-width="2"/>
-    <text x="849" y="318" text-anchor="middle" fill="#ff9fb4" font-size="16" font-weight="600">BLOCK</text>
-    <text x="849" y="348" text-anchor="middle" fill="#fff" font-size="20" font-weight="700">Quarantine</text>
+    <text x="849" y="318" text-anchor="middle" fill="#ff9fb4" font-size="16" font-weight="600">BLOQUEAR</text>
+    <text x="849" y="348" text-anchor="middle" fill="#fff" font-size="20" font-weight="700">Quarentena</text>
 
     <rect x="1000" y="185" width="144" height="112" rx="18" fill="#302d56" stroke="#a69cff" stroke-width="2"/>
-    <text x="1072" y="226" text-anchor="middle" fill="#c0b9ff" font-size="16" font-weight="600">EVIDENCE</text>
-    <text x="1072" y="258" text-anchor="middle" fill="#fff" font-size="19" font-weight="700">Audit + metrics</text>
+    <text x="1072" y="226" text-anchor="middle" fill="#c0b9ff" font-size="16" font-weight="600">EVIDÊNCIA</text>
+    <text x="1072" y="258" text-anchor="middle" fill="#fff" font-size="19" font-weight="700">Auditoria + métricas</text>
   </g>
 
   <g fill="none" stroke="#73d7ff" stroke-width="3" marker-end="url(#arrow)">
@@ -51,8 +51,8 @@
 
   <g font-family="Segoe UI, Arial">
     <rect x="346" y="386" width="300" height="68" rx="16" fill="#14273a" stroke="#587b98"/>
-    <text x="496" y="414" text-anchor="middle" fill="#9fc2dc" font-size="14" font-weight="600">CONVERSATION STATE</text>
-    <text x="496" y="439" text-anchor="middle" fill="#fff" font-size="16">Human ownership + authorized notice</text>
+    <text x="496" y="414" text-anchor="middle" fill="#9fc2dc" font-size="14" font-weight="600">ESTADO DA CONVERSA</text>
+    <text x="496" y="439" text-anchor="middle" fill="#fff" font-size="16">Ownership humano + aviso autorizado</text>
     <path d="M496 386 V348" fill="none" stroke="#587b98" stroke-width="2" marker-end="url(#arrow)"/>
   </g>
 </svg>
