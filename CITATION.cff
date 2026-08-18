@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this lab, cite it using the metadata below."
+title: "AI Operations Reliability Lab"
+type: software
+authors:
+  - family-names: "Castello Branco"
+    given-names: "Vinicius"
+version: 1.0.0
+date-released: 2026-08-18
+license: MIT
+abstract: >-
+  A public synthetic engineering lab for deterministic AI guardrails, human ownership,
+  audit replay, observability, and reliability testing.

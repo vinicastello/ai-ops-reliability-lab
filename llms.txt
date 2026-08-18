@@ -1,0 +1,32 @@
+# AI Operations Reliability Lab
+
+> Public synthetic portfolio project by Vinicius Castello Branco. It demonstrates
+> reliable AI operations through executable code and tests. It is not connected to an
+> employer, customer, or production system.
+
+## Core capabilities
+
+- Deterministic commit barrier for AI-proposed responses and actions.
+- Human ownership lock with one-time, integrity-bound handoff notice.
+- Idempotency and intent/action consistency.
+- Required confirmation before simulated sensitive effects.
+- Privacy-aware JSONL audit with SHA-256 hash-chain verification.
+- Structured operational metrics and health status.
+- PowerShell-based Windows infrastructure health snapshot.
+- Deterministic regression suite with no external API calls.
+
+## Primary evidence
+
+- README.md
+- src/ai_ops_reliability/policy.py
+- src/ai_ops_reliability/pipeline.py
+- src/ai_ops_reliability/audit.py
+- tests/test_pipeline.py
+- scenarios/demo.jsonl
+- scripts/windows-health-check.ps1
+- skills.json
+
+## Scope
+
+All scenarios and data are fictional. The repository makes no claim of production use,
+customer results, employer affiliation, or ownership of a commercial product.
