@@ -1,35 +1,32 @@
-# Portfolio and interview guide
+# Como apresentar este projeto
 
-## Thirty-second explanation
+## Resumo em 30 segundos
 
-> I built a synthetic reliability lab that treats an AI response as a proposal rather
-> than an authority. A deterministic commit barrier validates ownership, intent,
-> confirmation, and idempotency before a simulated side effect. Every decision is
-> redacted, audited, and linked through a verifiable hash chain.
+> Criei um laboratório que trata a saída da IA como proposta, não como autoridade. Uma
+> camada determinística confere ownership, intenção, confirmação e duplicidade antes de
+> qualquer efeito. As decisões ficam registradas em uma auditoria verificável.
 
-## What can be demonstrated live
+## Demonstração rápida
 
-1. Run the unit tests.
-2. Execute `scenarios/demo.jsonl`.
-3. Point to the blocked incomplete appointment.
-4. Show the valid handoff notice followed by a blocked automated reply.
-5. Verify the audit chain.
-6. Change one audit value locally and show verification fail.
-7. Run the PowerShell health check on a Windows machine.
+1. Executar os testes unitários.
+2. Rodar `scenarios/demo.jsonl`.
+3. Mostrar o agendamento incompleto sendo bloqueado.
+4. Mostrar o aviso de handoff liberado e a resposta automática seguinte bloqueada.
+5. Verificar a cadeia de auditoria.
+6. Alterar localmente um valor do log e executar a verificação novamente.
+7. Rodar o health check em uma máquina Windows.
 
-## Engineering signals
+## Competências que aparecem no código
 
-- Reliability engineering: invariants, idempotency, explicit ownership.
-- AI operations: model-independent validation and human-in-the-loop control.
-- Observability: structured metrics, decision codes, audit replay.
-- Security and privacy: data reduction and tamper evidence.
-- Infrastructure operations: PowerShell health snapshot and JSON output.
-- Quality engineering: deterministic tests without network or model calls.
+- confiabilidade: invariantes, idempotência e ownership explícito;
+- operações com IA: validação independente do modelo e controle human-in-the-loop;
+- observabilidade: métricas estruturadas, códigos de decisão e replay;
+- segurança e privacidade: redução de dados e evidência de adulteração;
+- infraestrutura: diagnóstico em PowerShell com saída JSON;
+- qualidade: testes determinísticos sem rede nem chamada a modelos.
 
-## Honest scope statement
+## Como explicar o escopo
 
-Use this wording when asked whether the project runs in production:
-
-> This is a public reference lab built with synthetic data. It demonstrates the design
-> and verification approach, but it is intentionally not connected to a production
-> service or customer environment.
+> É um laboratório público feito com dados fictícios. Ele demonstra minhas decisões de
+> arquitetura e a forma como testo o fluxo, mas não está conectado a clientes nem a um
+> serviço de produção.
