@@ -1,22 +1,24 @@
-# Security policy
+# Política de segurança
 
-## Supported scope
+## Escopo
 
-This repository is a synthetic lab and does not process production traffic. Security
-reports should focus on weaknesses in the reference code, examples, or documentation.
+Este repositório é um laboratório com dados fictícios e não processa tráfego de
+produção. Relatos de segurança devem tratar de falhas no código de referência, nos
+exemplos ou na documentação.
 
-## Reporting
+## Como relatar
 
-Open a private security advisory in the repository after publication. Do not include
-real credentials, personal data, customer information, or production logs in a report.
+Use um aviso privado de segurança do próprio GitHub. Não inclua credenciais, dados
+pessoais, informações de clientes ou logs de produção.
 
-## Data handling
+## Tratamento de dados
 
-The committed scenarios must remain fictional. Generated audit and health artifacts are
-ignored by Git. Review every artifact before sharing it publicly, even though the audit
-layer performs basic email and phone redaction.
+Os cenários versionados precisam continuar fictícios. Artefatos gerados pela auditoria
+e pelo health check são ignorados pelo Git. Revise qualquer arquivo antes de publicá-lo,
+mesmo com a remoção básica de telefones e e-mails feita pelo código.
 
-## Important limitation
+## Limitação conhecida
 
-Regex-based redaction is data minimization, not a complete data-loss-prevention system.
-A production implementation requires a reviewed classification and retention policy.
+A remoção por expressão regular reduz a exposição, mas não substitui uma solução
+completa de prevenção contra vazamento de dados. Um uso produtivo exige políticas
+revisadas de classificação, retenção e descarte.

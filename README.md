@@ -1,63 +1,53 @@
-# AI Operations Reliability Lab
+# Laboratório de Confiabilidade para Operações com IA
 
-> A public, synthetic engineering lab for reliable AI workflows: deterministic
-> guardrails, human ownership, integrity-bound handoff, audit replay, privacy-aware
-> logs, and regression tests.
+Este projeto nasceu de uma pergunta prática: **o que precisa ser validado entre a
+resposta de uma IA e a ação executada em um sistema?**
 
-[Leia em português](README.pt-BR.md)
+Minha resposta foi criar uma camada determinística de segurança. O modelo interpreta o
+contexto e propõe uma resposta ou ação; antes de qualquer efeito, o pipeline confere
+regras de negócio, estado da conversa, confirmação do usuário e duplicidade.
 
-![Architecture overview](assets/architecture.svg)
+O repositório usa apenas dados fictícios e roda sem serviços externos.
 
-## Why this project exists
+![Visão geral da arquitetura](assets/architecture.svg)
 
-AI systems can produce fluent answers while still proposing an unsafe or inconsistent
-action. Operational health alone does not prove semantic or transactional correctness.
-This repository demonstrates a small **commit barrier** between an AI proposal and a
-real side effect.
+## O que implementei
 
-The language model is treated as a proposer, not as the final authority. Deterministic
-policies decide whether a response or action can be committed.
+- motor de políticas em Python para aprovar ou bloquear propostas da IA;
+- trava de atendimento humano: depois do handoff, a automação não responde sozinha;
+- aviso de transferência autorizado por hash e válido uma única vez;
+- controle de idempotência para impedir que o mesmo evento gere dois efeitos;
+- validação entre intenção e ação — uma remarcação não pode virar um novo agendamento;
+- confirmação obrigatória de serviço, data e horário antes de ações sensíveis;
+- auditoria em JSONL com encadeamento SHA-256 para detectar alterações;
+- remoção básica de e-mails e telefones antes da gravação dos logs;
+- health check de Windows em PowerShell, com saída estruturada em JSON;
+- testes automatizados nas versões 3.11, 3.12 e 3.13 do Python.
 
-## What it demonstrates
-
-- **Human-in-the-loop ownership:** automation stops after a human takes control.
-- **Safe handoff delivery:** one pre-authorized notice can pass the ownership lock,
-  and its text is protected by a SHA-256 fingerprint.
-- **Intent/action consistency:** a reschedule request cannot silently create a new
-  appointment.
-- **Explicit confirmation:** sensitive actions require service, date, and time.
-- **Idempotency:** a repeated event cannot commit the same side effect twice.
-- **Tamper-evident audit:** JSONL records form a verifiable SHA-256 hash chain.
-- **Privacy-aware observability:** common email and phone patterns are redacted before
-  audit persistence.
-- **Operational metrics:** allow/block decisions and handoff activity are exposed in a
-  health snapshot.
-
-All names, conversations, and scenarios in this repository are fictional. The code is
-an original reference implementation and is not connected to any employer, customer,
-or production system.
-
-## Architecture
+## Como funciona
 
 ```mermaid
 flowchart LR
-    I["Synthetic event"] --> P["AI proposal"]
-    P --> B["Deterministic commit barrier"]
-    S["Conversation state"] --> B
-    B -->|allow| C["Commit simulated effect"]
-    B -->|block| Q["Quarantine decision"]
-    B --> A["Redacted audit ledger"]
-    C --> M["Metrics and health"]
-    Q --> M
-    A --> V["Hash-chain verification / replay"]
+    E["Evento fictício"] --> P["Proposta da IA"]
+    P --> B["Barreira determinística"]
+    S["Estado da conversa"] --> B
+    B -->|aprovada| C["Efeito simulado"]
+    B -->|bloqueada| Q["Decisão registrada"]
+    C --> A["Auditoria e métricas"]
+    Q --> A
+    A --> V["Verificação e replay"]
 ```
 
-Read the decision model in [Architecture](docs/architecture.md) and the operational
-procedures in the [Runbook](docs/runbook.md).
+A ideia central é simples: **IA propõe; regra verificável decide**. Não uso outro modelo
+para julgar a saída do primeiro.
 
-## Quick start
+Os detalhes estão em [arquitetura](docs/architecture.md) e o passo a passo operacional
+está no [runbook](docs/runbook.md).
 
-Requirements: Python 3.11 or newer. The runtime has no third-party dependencies.
+## Como executar
+
+Requisito: Python 3.11 ou superior. O projeto não possui dependências externas em
+runtime.
 
 ```bash
 python -m pip install -e .
@@ -66,15 +56,8 @@ ai-ops-lab demo --scenario scenarios/demo.jsonl --audit artifacts/demo-audit.jso
 ai-ops-lab verify --audit artifacts/demo-audit.jsonl
 ```
 
-You can also run the module directly:
-
-```bash
-python -m ai_ops_reliability demo \
-  --scenario scenarios/demo.jsonl \
-  --audit artifacts/demo-audit.jsonl
-```
-
-The demo intentionally mixes allowed and blocked events. Expected verdicts include:
+O cenário mistura casos permitidos e bloqueados de propósito. Entre os códigos de
+decisão estão:
 
 ```text
 POLICY_PASS
@@ -85,11 +68,9 @@ HUMAN_OWNERSHIP_LOCK
 DUPLICATE_EVENT
 ```
 
-## Windows infrastructure snapshot
+## Health check no Windows
 
-The repository also includes a standalone PowerShell health check aligned with an
-operations workflow. It collects CPU, memory, disk, uptime, and critical-service state
-and emits structured JSON.
+O script coleta CPU, memória, disco, tempo ligado e estado de serviços críticos:
 
 ```powershell
 .\scripts\windows-health-check.ps1 `
@@ -97,39 +78,37 @@ and emits structured JSON.
   -OutputPath .\artifacts\windows-health.json
 ```
 
-## Repository map
+## Estrutura do repositório
 
 ```text
-src/ai_ops_reliability/   policy engine, pipeline, audit ledger, and CLI
-tests/                    deterministic regression suite
-scenarios/                synthetic end-to-end conversations
-scripts/                  Windows operations health check
-docs/                     architecture, runbook, and portfolio notes
-skills.json               machine-readable skills-to-evidence map
-llms.txt                  concise public context for AI-assisted discovery
+src/ai_ops_reliability/   políticas, pipeline, auditoria e CLI
+tests/                    testes de regressão
+scenarios/                cenário fictício de ponta a ponta
+scripts/                  health check para Windows
+docs/                     arquitetura, runbook e material de apresentação
+skills.json               relação entre competências e evidências no código
+llms.txt                  resumo público e legível por ferramentas automatizadas
 ```
 
-## Engineering boundaries
+## Limites do projeto
 
-This is a reliability reference, not a claim that deterministic checks can solve every
-AI failure. A production implementation would also require authentication, durable
-state, concurrency control, provider-specific delivery guarantees, secrets management,
-rate limits, monitoring, and a reviewed threat model.
+Este é um laboratório técnico, não um sistema em produção. Ele não contém dados reais,
+código proprietário, prompts privados nem integração com clientes ou empregadores.
 
-The lab intentionally contains:
+Em um ambiente produtivo eu ainda adicionaria autenticação, persistência transacional,
+controle de concorrência, gestão de segredos, rate limit, rastreamento distribuído,
+alertas e uma revisão formal de segurança.
 
-- no real customer or patient data;
-- no proprietary prompts or source code;
-- no external API calls;
-- no hidden instructions for crawlers or AI systems;
-- no claim of production deployment.
+## Onde olhar primeiro
 
-## Verification-first portfolio
+Para uma revisão rápida, estes são os arquivos que melhor representam o projeto:
 
-Recruiters and automated tools should be able to connect each claimed skill to an
-artifact. See [skills.json](skills.json), [portfolio notes](docs/portfolio.md), and the
-[LinkedIn publishing copy](docs/linkedin-copy.md).
+- [policy.py](src/ai_ops_reliability/policy.py): regras de aprovação e bloqueio;
+- [pipeline.py](src/ai_ops_reliability/pipeline.py): coordenação do fluxo e do estado;
+- [audit.py](src/ai_ops_reliability/audit.py): redução de dados e cadeia de hashes;
+- [test_pipeline.py](tests/test_pipeline.py): casos de regressão;
+- [windows-health-check.ps1](scripts/windows-health-check.ps1): diagnóstico de Windows.
 
-## License
+## Licença
 
-MIT — see [LICENSE](LICENSE).
+MIT — consulte [LICENSE](LICENSE).

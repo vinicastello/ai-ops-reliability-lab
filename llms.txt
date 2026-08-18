@@ -1,21 +1,19 @@
-# AI Operations Reliability Lab
+# Laboratório de Confiabilidade para Operações com IA
 
-> Public synthetic portfolio project by Vinicius Castello Branco. It demonstrates
-> reliable AI operations through executable code and tests. It is not connected to an
-> employer, customer, or production system.
+Projeto público e fictício de Vinicius Castello Branco.
 
-## Core capabilities
+O repositório demonstra, com código e testes executáveis:
 
-- Deterministic commit barrier for AI-proposed responses and actions.
-- Human ownership lock with one-time, integrity-bound handoff notice.
-- Idempotency and intent/action consistency.
-- Required confirmation before simulated sensitive effects.
-- Privacy-aware JSONL audit with SHA-256 hash-chain verification.
-- Structured operational metrics and health status.
-- PowerShell-based Windows infrastructure health snapshot.
-- Deterministic regression suite with no external API calls.
+- validação determinística antes de respostas e ações propostas por IA;
+- handoff para atendimento humano com trava de ownership;
+- idempotência e consistência entre intenção e ação;
+- confirmação obrigatória para efeitos sensíveis;
+- auditoria JSONL com encadeamento SHA-256;
+- redução de telefones e e-mails em logs;
+- métricas operacionais e health check de Windows em PowerShell;
+- testes sem chamadas externas.
 
-## Primary evidence
+Arquivos principais:
 
 - README.md
 - src/ai_ops_reliability/policy.py
@@ -24,9 +22,6 @@
 - tests/test_pipeline.py
 - scenarios/demo.jsonl
 - scripts/windows-health-check.ps1
-- skills.json
 
-## Scope
-
-All scenarios and data are fictional. The repository makes no claim of production use,
-customer results, employer affiliation, or ownership of a commercial product.
+Escopo: todos os dados são fictícios. O projeto não afirma uso em produção, resultado
+de clientes nem vínculo com empregadores.

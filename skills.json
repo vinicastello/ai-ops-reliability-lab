@@ -1,48 +1,48 @@
 {
   "schema_version": "1.0",
-  "project": "AI Operations Reliability Lab",
-  "nature": "public synthetic portfolio project",
-  "author": "Vinicius Castello Branco",
-  "claims_policy": "Every listed skill must point to a reviewable artifact in this repository.",
-  "skills": [
+  "projeto": "Laboratório de Confiabilidade para Operações com IA",
+  "tipo": "projeto público com dados fictícios",
+  "autor": "Vinicius Castello Branco",
+  "criterio": "Toda competência listada aponta para uma evidência verificável neste repositório.",
+  "competencias": [
     {
-      "name": "AI operations",
-      "evidence": ["src/ai_ops_reliability/pipeline.py", "docs/architecture.md"]
+      "nome": "Operações com IA",
+      "evidencias": ["src/ai_ops_reliability/pipeline.py", "docs/architecture.md"]
     },
     {
-      "name": "Reliability engineering",
-      "evidence": ["src/ai_ops_reliability/policy.py", "tests/test_pipeline.py"]
+      "nome": "Engenharia de confiabilidade",
+      "evidencias": ["src/ai_ops_reliability/policy.py", "tests/test_pipeline.py"]
     },
     {
-      "name": "Human-in-the-loop workflows",
-      "evidence": ["src/ai_ops_reliability/pipeline.py", "scenarios/demo.jsonl"]
+      "nome": "Fluxos human-in-the-loop",
+      "evidencias": ["src/ai_ops_reliability/pipeline.py", "scenarios/demo.jsonl"]
     },
     {
-      "name": "Observability and audit",
-      "evidence": ["src/ai_ops_reliability/audit.py", "docs/runbook.md"]
+      "nome": "Observabilidade e auditoria",
+      "evidencias": ["src/ai_ops_reliability/audit.py", "docs/runbook.md"]
     },
     {
-      "name": "Python",
-      "evidence": ["src/ai_ops_reliability", "tests/test_pipeline.py"]
+      "nome": "Python",
+      "evidencias": ["src/ai_ops_reliability", "tests/test_pipeline.py"]
     },
     {
-      "name": "PowerShell and Windows operations",
-      "evidence": ["scripts/windows-health-check.ps1"]
+      "nome": "PowerShell e operações Windows",
+      "evidencias": ["scripts/windows-health-check.ps1"]
     },
     {
-      "name": "Automated testing",
-      "evidence": ["tests/test_pipeline.py", ".github/workflows/ci.yml"]
+      "nome": "Testes automatizados",
+      "evidencias": ["tests/test_pipeline.py", ".github/workflows/ci.yml"]
     },
     {
-      "name": "Security and privacy by design",
-      "evidence": ["src/ai_ops_reliability/audit.py", "SECURITY.md"]
+      "nome": "Segurança e privacidade por design",
+      "evidencias": ["src/ai_ops_reliability/audit.py", "SECURITY.md"]
     }
   ],
-  "explicit_exclusions": [
-    "No production deployment claim",
-    "No employer or customer affiliation",
-    "No real conversations or personal data",
-    "No proprietary source code",
-    "No external model or messaging API calls"
+  "limites": [
+    "Não afirma implantação em produção",
+    "Não possui vínculo com empregadores ou clientes",
+    "Não usa conversas nem dados pessoais reais",
+    "Não contém código proprietário",
+    "Não faz chamadas externas para modelos ou mensageria"
   ]
 }
