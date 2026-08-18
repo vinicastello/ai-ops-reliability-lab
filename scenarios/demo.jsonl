@@ -1,0 +1,10 @@
+{"operation":"proposal","event_id":"evt-001","conversation_id":"demo-001","actor":"ai","intent":"information","response":"Posso ajudar com as opções disponíveis.","action":"reply"}
+{"operation":"proposal","event_id":"evt-002","conversation_id":"demo-001","actor":"ai","intent":"schedule","response":"Agendamento realizado.","action":"create_appointment","confirmed_fields":{"service":"assessment","date":"2026-09-10"}}
+{"operation":"proposal","event_id":"evt-003","conversation_id":"demo-001","actor":"ai","intent":"reschedule","response":"Criei um novo horário.","action":"create_appointment","confirmed_fields":{"service":"assessment","date":"2026-09-11","time":"14:00"}}
+{"operation":"open_handoff","conversation_id":"demo-001","notice":"Vou encaminhar você para uma pessoa da equipe.","reason":"request requires human review"}
+{"operation":"proposal","event_id":"evt-004","conversation_id":"demo-001","actor":"ai","intent":"handoff","response":"Vou encaminhar você para uma pessoa da equipe.","action":"reply","metadata":{"authorized_handoff_notice":true}}
+{"operation":"proposal","event_id":"evt-005","conversation_id":"demo-001","actor":"ai","intent":"information","response":"A automação tentou continuar após o handoff.","action":"reply"}
+{"operation":"proposal","event_id":"evt-006","conversation_id":"demo-001","actor":"human","intent":"information","response":"Olá, assumi este atendimento.","action":"reply"}
+{"operation":"release_handoff","conversation_id":"demo-001","released_by":"human-agent"}
+{"operation":"proposal","event_id":"evt-007","conversation_id":"demo-001","actor":"ai","intent":"schedule","response":"O horário foi confirmado.","action":"create_appointment","confirmed_fields":{"service":"assessment","date":"2026-09-11","time":"14:00"}}
+{"operation":"proposal","event_id":"evt-007","conversation_id":"demo-001","actor":"ai","intent":"schedule","response":"Tentativa duplicada.","action":"create_appointment","confirmed_fields":{"service":"assessment","date":"2026-09-11","time":"14:00"}}
